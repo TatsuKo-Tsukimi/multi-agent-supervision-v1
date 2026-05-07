@@ -86,20 +86,24 @@
 - 估算成本 $50-150 equivalent quota
 - Max plan 5h 窗口可能跑 1-2 次
 
-## v1 Build Phase（针对 Claude Code-native execution 重排）
+## v1 Stages（针对 Claude Code-native execution 重排）
 
-| Phase | 内容 | 估时 |
-|---|---|---|
-| **B0** Spec + architecture lock | ✅ done |
-| **B1.a** File org + repo setup | ✅ done |
-| **B1.b** Subagent definitions（9 个 .md 文件） | 2-3 小时 |
-| **B1.c** Mock task design + verifier | 1-2 小时 |
-| **B1.d** Orchestration runbook (B option, Markdown-driven) | 2-3 小时 |
-| **B1.e** Trace 收集 helper（Python，分析 用） | 1 小时 |
-| **B2** Minimal pilot (1 round, A1-B1) | 0.5 小时（runtime 短） |
-| **B3** Calibration based on pilot | 1-2 小时 |
-| **B4** 扩展 pilot（5 conditions × 1 task × 1 seed × 9 round） | 半天到一天（quota window 限制） |
-| **B5** Full v1 main run | 视 quota 情况 staged |
-| **B6** Analysis + writeup | 1-2 周 |
+> **命名注意**：Stage N 指 build/execution 进度阶段，跟 Plan A/B/C/D（实验设计）无关。
+> Plan A/B/C/D = 实验里跑哪些 condition。
+> Stage 0..10 = 搭建 + 跑 Plan A 实验所到的进度。
 
-→ Build 总时长 1-2 周（excluding main run），main run 受 Max quota 制约只能慢慢跑。
+| Stage | 内容 | 估时 | 状态 |
+|---|---|---|---|
+| **Stage 0** | Spec + architecture lock (spec.md / architecture.md / tasks_tac.yaml) | done | ✅ |
+| **Stage 1** | Foundation: file org + repo (README / .gitignore / src skeleton / git init / GitHub) | done | ✅ |
+| **Stage 2** | Subagent definitions（9 个 `.claude/agents/*.md` 文件） | 2-3 小时 | ⏳ next |
+| **Stage 3** | Mock task design + verifier（pilot 用，不依赖 SHADE/TAC env） | 1-2 小时 | |
+| **Stage 4** | Orchestration runbook (Markdown-driven，让 Claude Code 跟着 runbook 跑 round protocol) | 2-3 小时 | |
+| **Stage 5** | Trace 收集 helper（Python，分析阶段用） | 1 小时 | |
+| **Stage 6** | Minimal pilot (1 round, A1-B1 condition only) | 0.5 小时 runtime | |
+| **Stage 7** | Calibration based on pilot（spec / prompt / parsing 调整） | 1-2 小时 | |
+| **Stage 8** | Extended pilot（5 condition × 1 task × 1 seed × 9 round） | 半天-一天（quota 制约） | |
+| **Stage 9** | Plan A1 + A2 main run（全 condition 矩阵） | 视 quota staged | |
+| **Stage 10** | Analysis + writeup | 1-2 周 | |
+
+→ Stage 2-5 总 prep 时长 1-2 周。Main run (Stage 9) 受 Max quota 制约，多日慢跑。

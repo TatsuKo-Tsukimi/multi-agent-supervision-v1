@@ -100,17 +100,14 @@ These are unresolved in skeleton; defaults applied per architecture doc:
 6. ⚠️ Trace flush timing — currently end-of-run via Inspect; per-round flush TBD in build
 7. ⚠️ Cost monitoring — LLMClient counter not yet implemented
 
-## Next build steps
+## 注意：执行路径已 pivot
 
-Per architecture.md §8:
-- B1.a Skeleton (← **this is here**)
-- B1.b Single agent path (1 worker + supervisor smoke test)
-- B1.c Multi-agent + vote (3 worker + plan enum + vote engine)
-- B1.d Dissenter integration
-- B1.e Attacker variants
-- B1.f TAC adapter
-- B1.g L2 hook stubs
-- B2 Pilot run
-- B3 Calibration
-- B4 Main run
-- B5 Analysis + writeup
+本目录（src/）是 **Python pipeline 参考实现**，当前**主执行路径已切换到 Claude Code subagent-native**。详见 [`../EXECUTION.md`](../EXECUTION.md)。
+
+Stage 进度跟踪请看 EXECUTION.md 的 Stage 0..10 表格，不要看 architecture.md §8 的 deprecated 划分。
+
+src/ 仍是有用的参考：
+- `data_models.py` → trace schema 定义（subagent 输出按这个 schema 解析）
+- `prompts.py` → system prompt 模板（迁移到 `.claude/agents/*.md` frontmatter）
+- `round_executor.py` → 13-step round protocol 状态机（runbook 按这个顺序写）
+- 其他 → reference / 后续 analysis 脚本可能用到
