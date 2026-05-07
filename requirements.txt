@@ -1,0 +1,18 @@
+# Multi-Agent Supervision Experiment — Python dependencies
+#
+# Note: 实验主执行路径是 Claude Code subagent-native，这些依赖主要给 src/ 参考实现 + 后续可能的 analysis 脚本用。
+
+# Core
+pydantic>=2.0
+pyyaml>=6.0
+
+# Optional: API key path (if pivoting to Anthropic SDK based execution)
+# anthropic>=0.40
+
+# Optional: Inspect framework integration
+# inspect-ai>=0.3
+
+# Analysis (future)
+# pandas>=2.0
+# matplotlib>=3.7
+# numpy>=1.24

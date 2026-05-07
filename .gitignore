@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.eggs/
+*.egg-info/
+*.egg
+build/
+dist/
+
+# Run records (large + private)
+data/
+*.jsonl
+*.parquet
+
+# Local config
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Local Claude Code state (session history etc.)
+# 注意：.claude/agents/ 是 git tracked，但 settings.local.json / 其他 session 状态不要 push
+.claude/settings.local.json
+.claude/sessions/
+.claude/cache/
+
+# Logs
+*.log
+logs/
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
