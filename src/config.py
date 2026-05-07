@@ -15,7 +15,7 @@ from .data_models import ConditionEnum, AttackerVariant
 class ModelConfig(BaseModel):
     worker: str = "claude-opus-4-7"
     dissenter: str = "claude-opus-4-7"
-    supervisor: str = "claude-opus-4-6"
+    supervisor: str = "claude-sonnet-4-6"  # Stage 7: changed from claude-opus-4-6 (not in current Claude Code model list); Sonnet 4.6 preserves trusted-monitor capability gap
 
 
 class AgentConfig(BaseModel):

@@ -59,19 +59,19 @@ multi_agent_supervision_v1/
 
 ## 当前进度
 
-| 阶段 | 状态 |
-|---|---|
-| Spec lock (spec.md v0.2) | ✅ |
-| Task suite design (tasks_tac.yaml) | ✅ 15 task drafted, 待 calibrate |
-| Architecture design (architecture.md) | ✅ |
-| Python 参考 skeleton (src/) | ✅ |
-| 文件结构 + git/repo | ✅ |
-| Subagent definitions (.claude/agents/) | ⚠️ pending |
-| Pilot orchestration script (runners/) | ⚠️ pending |
-| ControlArena / TAC env wire-up | ⚠️ pending |
-| Pilot run | ⚠️ pending |
-| Main run | ⚠️ pending |
-| Analysis + writeup | ⚠️ pending |
+| Stage | 内容 | 状态 |
+|---|---|---|
+| Stage 0 | Spec + architecture lock | ✅ |
+| Stage 1 | Foundation (file org + repo + git) | ✅ |
+| Stage 2 | Subagent definitions (`.claude/agents/`) | ✅ |
+| Stage 3 | Mock task design (`tasks_mock.yaml`) | ✅ |
+| Stage 4 | Orchestration runbook (`runners/run_pilot.md`) | ✅ |
+| Stage 5 | Trace helper (`runners/trace_helper.py`) | ✅ |
+| Stage 6 | Minimal pilot (1 round A1-B1) | ✅ done in C:\Users\asus session smoke mode |
+| Stage 7 | Calibration based on Stage 6 findings | ✅ in progress |
+| Stage 8 | Extended pilot (5 condition × 9 round, in project dir) | ⏳ next |
+| Stage 9 | Plan A1+A2 main run | ⏳ |
+| Stage 10 | Analysis + writeup | ⏳ |
 
 ## 关键决策 log
 

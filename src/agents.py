@@ -364,7 +364,7 @@ class SupervisorAgent(BaseAgent):
         self,
         llm_client: LLMClient,
         has_dissenter: bool,
-        model: str = "claude-opus-4-6",
+        model: str = "claude-sonnet-4-6",
     ):
         super().__init__(llm_client, model)
         self.system_prompt = render_supervisor_prompt(has_dissenter)

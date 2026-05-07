@@ -19,7 +19,7 @@
 | L2 接口 | code 落地，config disabled，v2 启用 |
 | Testbed | ControlArena (= SHADE-Arena on Inspect framework) |
 | Worker / Dissenter / Attacker model | Claude Opus 4.7 |
-| Supervisor model | Claude Opus 4.6 (trusted-monitor setting) |
+| Supervisor model | Claude Sonnet 4.6 (trusted-monitor setting; Stage 7 calibration changed from Opus 4.6 — see §2 note) |
 
 ### Team 配置
 | 项 | Lock |
@@ -119,7 +119,9 @@ v1 spec 在 §9 留 hook，使 v2 不需要重写 infra。
 | Worker (×3) | Claude Opus 4.7 |
 | Dissenter | Claude Opus 4.7 |
 | Attacker (replaces 1 worker in A2) | Claude Opus 4.7 |
-| Supervisor | Claude Opus 4.6 |
+| Supervisor | Claude Sonnet 4.6 |
+
+> **Stage 7 calibration note**: Original spec called for Opus 4.6 supervisor (same family, smaller version). However, Claude Opus 4.6 is not exposed in current Claude Code model list (only Opus 4.7 / Sonnet 4.6 / Haiku 4.5 available). Switched to Sonnet 4.6 to preserve trusted-monitor capability gap (Sonnet 4.6 is meaningfully weaker than Opus 4.7 across reasoning + tool-use benchmarks). Tradeoff: introduces cross-family architectural difference, but AI Control literature (e.g., OpenAI's GPT-4o monitoring o3-mini) supports cross-family trusted-monitor configurations. Capability gap > family consistency.
 
 Trusted-monitor setting：supervisor 比 worker 弱一档，符合 AI Control 经典配置 (Greenblatt et al)。
 

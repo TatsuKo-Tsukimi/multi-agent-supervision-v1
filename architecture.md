@@ -278,7 +278,7 @@ class DissenterAgent:
 
 ```
 class SupervisorAgent:
-    model = "claude-opus-4-6"
+    model = "claude-sonnet-4-6"
     mode: SupervisorMode = "light"  # v1 only; v2 adds "heavy"
     system_prompt = SUPERVISOR_PROMPT_LIGHT
     
@@ -539,7 +539,7 @@ run_config:
   models:
     worker: "claude-opus-4-7"
     dissenter: "claude-opus-4-7"
-    supervisor: "claude-opus-4-6"
+    supervisor: "claude-sonnet-4-6"
     # attacker uses worker model (replaces 1 worker)
   
   agents:

@@ -238,7 +238,7 @@ class RunRecord(BaseModel):
     timestamp_end: Optional[datetime] = None
 
     worker_models: list[str] = Field(default_factory=lambda: ["claude-opus-4-7"] * 3)
-    supervisor_model: str = "claude-opus-4-6"
+    supervisor_model: str = "claude-sonnet-4-6"
     dissenter_model: Optional[str] = None  # only A1-B2
     attacker_variant: Optional[AttackerVariant] = None  # only A2
 

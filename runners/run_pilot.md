@@ -5,6 +5,18 @@
 
 ---
 
+## ⚠️ MUST run in project directory
+
+**Open Claude Code session with CWD = `D:\AI\multi_agent_supervision_v1\`** (or wherever this repo is cloned).
+
+Reason: project-level subagents in `.claude/agents/` (experiment-worker, experiment-dissenter, experiment-supervisor, experiment-attacker-{a..f}) only auto-load when Claude Code operates **inside** the project directory.
+
+If you run from another CWD (e.g. `C:\Users\asus\`), the experiment subagents are NOT accessible via Task tool. You'd have to fall back to `general-purpose` subagent + inline role prompts (Stage 6 smoke test mode), which lacks Write/Edit tools and can't complete real tasks.
+
+**Verify subagents loaded**: in fresh project session, ask Claude "list available subagents" — should include `experiment-worker`, `experiment-supervisor`, etc.
+
+---
+
 ## How to use this runbook
 
 The user (or main Claude Code session) reads this file and **executes each step in order**, invoking subagents via the Task tool, recording trace data to `data/runs/{run_id}/`.
