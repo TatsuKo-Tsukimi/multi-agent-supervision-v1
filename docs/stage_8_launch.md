@@ -30,7 +30,7 @@ Before starting Stage 8, verify ALL of:
 Quick verification commands:
 
 ```bash
-pwd  # should be ~/work/multi_agent_supervision_v1
+pwd  # should end with /multi_agent_supervision_v1
 git status
 git log -1 --oneline  # should show "Stage 7: Calibration"
 ls .claude/agents/  # should show 9 .md files (worker, dissenter, supervisor, attacker-{a..f})
